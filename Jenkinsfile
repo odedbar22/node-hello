@@ -12,5 +12,11 @@ pipeline {
       }
     }
 
+    stage('done') {
+      steps {
+        sh 'echo "done"'
+      }
+    }
+
   }
 }
