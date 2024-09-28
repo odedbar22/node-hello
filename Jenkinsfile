@@ -15,16 +15,16 @@ pipeline {
 
     stage('install node.js') {
       steps {
-        sh '''wget https://nodejs.org/dist/v10.24.1/node-v10.24.1-linux-x64.tar.xz
-tar -xzvf node-v10.24.1-linux-x64.tar.xz node/
-ls node/
-  '''
+        sh '''curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
+nvm install 10
+node -v 
+npm -v'''
       }
     }
 
     stage('build node pack') {
       steps {
-        sh './node/bin/npm install'
+        sh 'npm install'
       }
     }
 
